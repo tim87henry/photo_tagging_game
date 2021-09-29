@@ -1,3 +1,5 @@
-.gameImage {
-    cursor: default;
+.imageDiv {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
