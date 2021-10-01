@@ -1,9 +1,9 @@
 import fight_club from "./data/fight_club.png";
 import "./style.css";
 
-const Game = () => {
+const Game = (props) => {
 
-    const checkClick = (e) => {
+    const getCoords = (e) => {
         let oElement = e.target;
         let ImgPos=[];
         if(typeof(oElement.offsetParent ) != "undefined")
@@ -35,12 +35,23 @@ const Game = () => {
         }
         PosX = PosX - ImgPos[0];
         PosY = PosY - ImgPos[1];
-        console.log("Position is "+PosX+" , "+PosY)
+        return [PosX, PosY]
+    }
+
+    const showMenu = () => {
+        // Display menu to select character
+    }
+
+    const processClick = (e) => {
+        let PosX = getCoords(e)[0];
+        let PosY = getCoords(e)[1];
+        showMenu();
+        props.checkSelection(PosX,PosY,3);
     }
 
     return (
         <div className="imageDiv">
-            <img src={fight_club} alt="" useMap="#gamemap" className="gameImage" onClick={checkClick}></img>
+            <img src={fight_club} alt="" useMap="#gamemap" className="gameImage" onClick={processClick}></img>
             <map name="gamemap">
                 {/* <area shape="poly" coords="280,1300, 300,1300, 300,1330, 280,1330" href="google.com"></area> */}
             </map>
