@@ -38,15 +38,31 @@ const Game = (props) => {
         return [PosX, PosY]
     }
 
-    const showMenu = () => {
+    const showMenu = (x,y,e) => {
         // Display menu to select character
+        
+        const menuDiv = document.createElement('div');
+        menuDiv.innerHTML=`
+        <ul id="characterMenu">
+            <li onclick=`+props.checkSelection(x,y,1)+`>Trinity</li>
+            <li>Sarah</li>
+            <li>Astro Boy</li>
+        </ul>`;
+        menuDiv.style.background = "lightgrey";
+        menuDiv.style.position = "absolute";
+        menuDiv.style.left = e.pageX+"px";
+        menuDiv.style.top = e.pageY+"px";
+        menuDiv.style.height = "100px";
+        menuDiv.style.width = "200px";
+        document.body.appendChild(menuDiv);
+        
     }
 
     const processClick = (e) => {
         let PosX = getCoords(e)[0];
         let PosY = getCoords(e)[1];
-        showMenu();
-        props.checkSelection(PosX,PosY,3);
+        showMenu(PosX,PosY,e);
+        //props.checkSelection(PosX,PosY,3);
     }
 
     return (
