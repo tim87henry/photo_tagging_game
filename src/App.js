@@ -30,7 +30,10 @@ function App() {
 
     correctSelection = (x >= xMin && x <= xMax && y >= yMin && y <= yMax)? true : false;
     console.log("That's "+correctSelection)
-
+    const menus = document.getElementsByClassName("menuDiv");
+    for (let i=0;i<menus.length;i++) {
+        menus[i].style.display = "none";
+    }
   }
 
   return (
