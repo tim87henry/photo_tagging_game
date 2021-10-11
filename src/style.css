@@ -4,6 +4,15 @@
     justify-content: center;
 }
 
-#characterMenu {
+.charList {
+    display: flex;
     list-style-type: none;
+}
+
+.charList li {
+    padding-left: 30px;
+}
+
+.found {
+    font-style: italic;
 }
