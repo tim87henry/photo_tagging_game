@@ -5,6 +5,7 @@ import {useState} from "react";
 const Game = (props) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [showModal, setShowModal] = useState(true);
 
     const getCoords = (e) => {
         let oElement = e.target;
@@ -48,19 +49,19 @@ const Game = (props) => {
         const trinity = document.createElement('div');
         trinity.innerHTML = "Trinity";
         trinity.addEventListener("click", function(e) {
-            props.checkSelection(x,y,1);
+            props.checkSelection(x,y,0);
             closeMenu();
         });
         const sarah = document.createElement('div');
         sarah.innerHTML = "Sarah";
         sarah.addEventListener("click", function(e) {
-            props.checkSelection(x,y,2);
+            props.checkSelection(x,y,1);
             closeMenu();
         });
         const astro = document.createElement('div');
         astro.innerHTML = "Astro Boy";
         astro.addEventListener("click", function(e) {
-            props.checkSelection(x,y,3);
+            props.checkSelection(x,y,2);
             closeMenu();
         });
         menuDiv.appendChild(trinity);
@@ -97,9 +98,22 @@ const Game = (props) => {
         }
     }
 
+    let className = (showModal)? "showModal": "hideModal";
+
+    const closeModal = () => {
+        setShowModal(false);
+    }
+
     return (
-        <div className="imageDiv" onClick={processClick}>
-            <img src={fight_club} alt="" className="gameImage" onClick={processClick}></img>
+        <div className="gameDiv">
+            <div className={className}>
+                <label for="name" className="userName">Enter the Player name</label> 
+                <input id="name"></input>
+                <button onClick={closeModal} className="modalLink">Start Game</button>
+            </div>
+            <div className="imageDiv" onClick={processClick}>
+                <img src={fight_club} alt="" className="gameImage" onClick={processClick}></img>
+            </div>
         </div>
     );
 }

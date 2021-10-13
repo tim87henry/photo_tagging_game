@@ -1,12 +1,29 @@
+body {
+    background: gainsboro;
+    margin: 0;
+    padding: 0;
+}
+
 .imageDiv {
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+.navbar {
+    position: fixed;
+    width: 100%;
+    background: lightgrey;
+    top: 0;
+}
+
 .charList {
     display: flex;
     list-style-type: none;
+}
+
+.App,.gameDiv {
+    margin-top: 100px;
 }
 
 .charList li {
@@ -15,4 +32,31 @@
 
 .found {
     font-style: italic;
+}
+
+.showModal {
+    background: pink;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5); 
+    color: white;
+    z-index: 1;
+    overflow: auto;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.userName, #name {
+    margin-bottom: 20px;
+}
+
+.hideModal {
+    display: none;
+}
+
+.modalLink {
+    cursor: pointer;
 }

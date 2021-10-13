@@ -16,6 +16,11 @@ function App() {
       "name": "Astro Boy",
       "found": false
     }]);
+  
+  const [userName, setUserName] = useState("");
+  const [foundName, setFoundName] = useState("");
+  const [charFound, setCharFound] = useState(false);
+  const [gameOver, setGameOver] = useState(false);
 
   const checkSelection = (x,y,character) => {
     
@@ -23,38 +28,57 @@ function App() {
     let xMin, xMax, yMin, yMax = 0;
     let charactersCopy = [];
     
-    if (character === 1) {
+    if (character === 0) {
       xMin = 645;
       xMax = 740;
       yMin = 1310;
       yMax = 1430;
-      charactersCopy.push({
-        "name": "Trinity", 
-        "found": true
-      },characters[1],characters[2]);
-    } else if (character === 2) {
+      correctSelection = (x >= xMin && x <= xMax && y >= yMin && y <= yMax)? true : false;
+      if (correctSelection) {
+        charactersCopy.push({
+          "name": "Trinity", 
+          "found": true
+        },characters[1],characters[2]);
+        setCharacters(charactersCopy);
+      }
+    } else if (character === 1) {
       xMin = 210;
       xMax = 280;
       yMin = 700;
       yMax = 870;
-      charactersCopy.push(characters[0],{
-        "name": "Sarah Connor",
-        "found": true
-      },characters[2]);
+      correctSelection = (x >= xMin && x <= xMax && y >= yMin && y <= yMax)? true : false;
+      if (correctSelection) {
+        charactersCopy.push(characters[0],{
+          "name": "Sarah Connor",
+          "found": true
+        },characters[2]);
+        setCharacters(charactersCopy);
+      }
     } else {
       xMin = 280;
       xMax = 300;
       yMin = 1300;
       yMax = 1330;
-      charactersCopy.push(characters[0],characters[1],{
-        "name": "Astro Boy",
-        "found": true
-      });
+      correctSelection = (x >= xMin && x <= xMax && y >= yMin && y <= yMax)? true : false;
+      if (correctSelection) {
+        charactersCopy.push(characters[0],characters[1],{
+          "name": "Astro Boy",
+          "found": true
+        });
+        setCharacters(charactersCopy);
+      }
     }
 
-    correctSelection = (x >= xMin && x <= xMax && y >= yMin && y <= yMax)? true : false;
-    if (correctSelection) {
-      setCharacters(charactersCopy);
+    if (characters[0].found && characters[1].found && characters[2].found) {
+      setGameOver(true);
+    } else {
+      if (correctSelection) {
+        setCharFound(true);
+        setFoundName(charactersCopy[character].name)
+      } else {
+        setFoundName('  ')
+        setCharFound(false);
+      }
     }
     
     const menus = document.getElementsByClassName("menuDiv");
@@ -65,13 +89,16 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar characters={characters} />
+      <Navbar 
+      characters={characters} 
+      foundName={foundName}
+      charFound={charFound}
+      gameOver={gameOver}
+      />
       <BrowserRouter>
         <Switch>
-          <Route path="/game" render={() => <Game checkSelection={checkSelection} />}></Route>
-          <p>
-            Click <Link to="/game">Here</Link>
-          </p>
+          <Route path="/game" render={() => <Game checkSelection={checkSelection} userName={userName} />}></Route>
+          <Link to="/game">Start Game</Link>
         </Switch>
       </BrowserRouter>
     </div>
