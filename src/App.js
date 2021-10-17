@@ -6,16 +6,24 @@ import {useState} from "react";
 function App() {
 
   const [characters,setCharacters] = useState(
-    ["Trinity",
-    "Sarah Connor",
-    "Astro Boy",
+    [
+      ["Trinity", false],
+      ["Sarah Connor",false],
+      ["Astro Boy",false]
     ]);
   
   const [userName, setUserName] = useState("");
-  // const [foundName, setFoundName] = useState("");
-  // const [charFound, setCharFound] = useState(false);
-  let foundName = "";
-  let charFound = false;
+  const [time, setTime] = useState(0);
+
+  const setName = (name) => {
+    setUserName(name)
+  }
+
+  const increaseTime = () => {
+    let current_time = time;
+    current_time++;
+    setTime(current_time);
+  }
 
   const checkSelection = (x,y,character) => {
     
@@ -41,13 +49,18 @@ function App() {
     }
 
     if (x >= xMin && x <= xMax && y >= yMin && y <= yMax) {
-      foundName = characters[character].name
-      charFound = true;
+      for (let i=0;i<3;i++) {
+        if (i === character) {
+          charactersCopy.push([characters[i][0],true])
+        } else {
+          charactersCopy.push(characters[i])
+        }
+      }
     } else {
-      foundName = " ";
-      charFound = false;
+      charactersCopy.push(...characters);
     }
     
+    setCharacters(charactersCopy)
     
     const menus = document.getElementsByClassName("menuDiv");
     for (let i=0;i<menus.length;i++) {
@@ -58,13 +71,19 @@ function App() {
   return (
     <div className="App">
       <Navbar 
-      characters={characters} 
-      foundName={foundName}
-      charFound={charFound}
+      characters={characters}
+      time={time}
+      increaseTime={increaseTime}
       />
       <BrowserRouter>
         <Switch>
-          <Route path="/game" render={() => <Game checkSelection={checkSelection} userName={userName} />}></Route>
+          <Route path="/game" render={() => 
+          <Game 
+          checkSelection={checkSelection} 
+          userName={userName} 
+          setName={setName}
+          />}>
+          </Route>
           <Link to="/game">Start Game</Link>
         </Switch>
       </BrowserRouter>

@@ -6,6 +6,7 @@ const Game = (props) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(true);
+    const [userName, setUserName] = useState(props.userName);
 
     const getCoords = (e) => {
         let oElement = e.target;
@@ -88,7 +89,6 @@ const Game = (props) => {
     }
 
     const processClick = (e) => {
-        console.log("ITS "+e.target.className)
         if (menuOpen === false && e.target.className === "gameImage") {
             let PosX = getCoords(e)[0];
             let PosY = getCoords(e)[1];
@@ -100,15 +100,20 @@ const Game = (props) => {
 
     let className = (showModal)? "showModal": "hideModal";
 
+    const setName = (e) => {
+        props.setName(e.target.value)
+    }
+
     const closeModal = () => {
         setShowModal(false);
     }
+
 
     return (
         <div className="gameDiv">
             <div className={className}>
                 <label for="name" className="userName">Enter the Player name</label> 
-                <input id="name"></input>
+                <input id="name" onChange={setName}></input>
                 <button onClick={closeModal} className="modalLink">Start Game</button>
             </div>
             <div className="imageDiv" onClick={processClick}>

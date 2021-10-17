@@ -12,6 +12,7 @@ body {
 
 .navbar {
     position: fixed;
+    display: flex;
     width: 100%;
     background: lightgrey;
     top: 0;
@@ -59,4 +60,10 @@ body {
 
 .modalLink {
     cursor: pointer;
+}
+
+.timer {
+    position: absolute;
+    right: 10px;
+    align-self: center;
 }
