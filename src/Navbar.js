@@ -13,6 +13,10 @@ const Navbar = (props) => {
         }
     }
 
+    if (charClassName[0]==="found" && charClassName[1]==="found" && charClassName[2]==="found") {
+        props.changeGameStatus("over");
+    }
+
     return(
         <div key={props.characters} className="navbar">
             <ul className="charList">
@@ -23,6 +27,7 @@ const Navbar = (props) => {
             <Timer 
             time={props.time}
             increaseTime={props.increaseTime}
+            gameOngoing={props.gameOngoing}
             />
         </div>
     );

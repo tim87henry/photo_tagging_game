@@ -12,11 +12,21 @@ function App() {
       ["Astro Boy",false]
     ]);
   
+  const [leaderboard, setLeaderboard] = useState([]);
   const [userName, setUserName] = useState("");
   const [time, setTime] = useState(0);
+  const [gameStatus, setGameStatus] = useState("init");
 
   const setName = (name) => {
     setUserName(name)
+  }
+
+  const changeGameStatus = (status) => {
+    setGameStatus(status);
+    // if (status === "over") {
+    //   let topScores = [...leaderboard,[userName,time]];
+    //   setLeaderboard(topScores);
+    // }
   }
 
   const increaseTime = () => {
@@ -74,6 +84,8 @@ function App() {
       characters={characters}
       time={time}
       increaseTime={increaseTime}
+      gameStatus={gameStatus}
+      changeGameStatus={changeGameStatus}
       />
       <BrowserRouter>
         <Switch>
@@ -82,6 +94,9 @@ function App() {
           checkSelection={checkSelection} 
           userName={userName} 
           setName={setName}
+          gameStatus={gameStatus}
+          changeGameStatus={changeGameStatus}
+          leaderboard={leaderboard}
           />}>
           </Route>
           <Link to="/game">Start Game</Link>

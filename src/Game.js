@@ -6,7 +6,6 @@ const Game = (props) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
     const [showModal, setShowModal] = useState(true);
-    const [userName, setUserName] = useState(props.userName);
 
     const getCoords = (e) => {
         let oElement = e.target;
@@ -99,12 +98,14 @@ const Game = (props) => {
     }
 
     let className = (showModal)? "showModal": "hideModal";
+    let gameOverClass = (props.gameOver)? "showLeaderboard" : "hideLeaderboard";
 
     const setName = (e) => {
         props.setName(e.target.value)
     }
 
     const closeModal = () => {
+        props.changeGameStatus("start");
         setShowModal(false);
     }
 
@@ -118,6 +119,9 @@ const Game = (props) => {
             </div>
             <div className="imageDiv" onClick={processClick}>
                 <img src={fight_club} alt="" className="gameImage" onClick={processClick}></img>
+            </div>
+            <div className={gameOverClass}>
+                <h1>Game over!!!!!</h1>
             </div>
         </div>
     );

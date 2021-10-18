@@ -67,3 +67,11 @@ body {
     right: 10px;
     align-self: center;
 }
+
+.hideLeaderboard {
+    display: none;
+}
+
+.showLeaderboard {
+    background: olive;
+}

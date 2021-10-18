@@ -10,7 +10,9 @@ const Timer = (props) => {
     
     useEffect(() => {
         setTimeout(() => {
-            props.increaseTime();
+            if (props.gameOngoing) {
+                props.increaseTime();
+            }
         }, 1000);
     })
 
