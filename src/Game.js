@@ -98,8 +98,11 @@ const Game = (props) => {
     }
 
     let className = (showModal)? "showModal": "hideModal";
-    let gameOverClass = (props.gameOver)? "showLeaderboard" : "hideLeaderboard";
-
+    let gameOverClass = (props.characters[0][1] && props.characters[1][1] && props.characters[2][1])? "showLeaderboard" : "hideLeaderboard";
+    //let leaderboard = props.gameStatus["leaderboard"];
+    console.log("Characts "+props.characters)
+    let leaderboard = (props.characters[0][1] && props.characters[1][1] && props.characters[2][1])? props.characters[3] : "";
+    
     const setName = (e) => {
         props.setName(e.target.value)
     }
@@ -122,6 +125,7 @@ const Game = (props) => {
             </div>
             <div className={gameOverClass}>
                 <h1>Game over!!!!!</h1>
+                <h2>{leaderboard}</h2>
             </div>
         </div>
     );

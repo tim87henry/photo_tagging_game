@@ -9,24 +9,34 @@ function App() {
     [
       ["Trinity", false],
       ["Sarah Connor",false],
-      ["Astro Boy",false]
+      ["Astro Boy",false],
+      []
     ]);
   
-  const [leaderboard, setLeaderboard] = useState([]);
+  //const [leaderboard, setLeaderboard] = useState([]);
   const [userName, setUserName] = useState("");
   const [time, setTime] = useState(0);
-  const [gameStatus, setGameStatus] = useState("init");
+  const [gameStatus, setGameStatus] = useState({
+    "status":"init",
+    "leaderboard":[]
+  });
 
   const setName = (name) => {
     setUserName(name)
   }
 
   const changeGameStatus = (status) => {
-    setGameStatus(status);
-    // if (status === "over") {
-    //   let topScores = [...leaderboard,[userName,time]];
-    //   setLeaderboard(topScores);
-    // }
+    let lb;
+    if (characters[0][1] && characters[1][1] && characters[2][1]) {
+      console.log("ENDS")
+      lb = [...gameStatus["leaderboard"],[userName,time]];
+    } else {
+      lb = gameStatus["leaderboard"]
+    }
+    setGameStatus({
+      "status":status,
+      "leaderboard":lb
+    });
   }
 
   const increaseTime = () => {
@@ -37,7 +47,6 @@ function App() {
 
   const checkSelection = (x,y,character) => {
     
-    let correctSelection = false;
     let xMin, xMax, yMin, yMax = 0;
     let charactersCopy = [];
     
@@ -69,6 +78,11 @@ function App() {
     } else {
       charactersCopy.push(...characters);
     }
+
+    if (charactersCopy[0][1] && charactersCopy[1][1] && charactersCopy[2][1]) {
+      console.log("FINALS")
+      charactersCopy.push([userName,time])
+    }
     
     setCharacters(charactersCopy)
     
@@ -96,7 +110,8 @@ function App() {
           setName={setName}
           gameStatus={gameStatus}
           changeGameStatus={changeGameStatus}
-          leaderboard={leaderboard}
+          characters={characters}
+          time={time}
           />}>
           </Route>
           <Link to="/game">Start Game</Link>

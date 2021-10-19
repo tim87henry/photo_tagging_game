@@ -1,4 +1,3 @@
-import {useState, useEffect} from "react";
 import Timer from "./Timer.js";
 
 const Navbar = (props) => {
@@ -14,7 +13,7 @@ const Navbar = (props) => {
     }
 
     if (charClassName[0]==="found" && charClassName[1]==="found" && charClassName[2]==="found") {
-        props.changeGameStatus("over");
+        //props.changeGameStatus("over");
     }
 
     return(
@@ -27,7 +26,8 @@ const Navbar = (props) => {
             <Timer 
             time={props.time}
             increaseTime={props.increaseTime}
-            gameOngoing={props.gameOngoing}
+            gameStatus={props.gameStatus}
+            characters={props.characters}
             />
         </div>
     );

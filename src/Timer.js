@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useEffect} from "react";
 
 const Timer = (props) => {
     
@@ -10,7 +10,7 @@ const Timer = (props) => {
     
     useEffect(() => {
         setTimeout(() => {
-            if (props.gameOngoing) {
+            if (props.gameStatus["status"] === "start" && !(props.characters[0][1] && props.characters[1][1] && props.characters[2][1]) ) {
                 props.increaseTime();
             }
         }, 1000);
