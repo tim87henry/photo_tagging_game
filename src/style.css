@@ -1,8 +1,60 @@
+body {
+    border: 0;
+    margin: 0;
+}
+
 .navbar {
     display: flex;
+    background: lightgrey;
+    position: fixed;
+    width: 100%;
+    top: 0;
 }
 
 .navbar_image {
-    height: 100px;
-    width: 70px;
+    height: 80px;
+    width: 60px;
+    margin: 20px;
+}
+
+.timer {
+    position: absolute;
+    right: 10px;
+    align-self: center;
+    font-size: 22px;
+}
+
+.intro {
+    text-align: center;
+    margin-top: 180px;
+}
+
+.imageList {
+    display: flex;
+    margin-top: 50px;
+    justify-content: center;
+}
+
+.intro_image {
+    height: 200px;
+    width: 140px;
+    margin: 40px
+}
+
+.startGameButton {
+    background: lightslategray;
+    color: white;
+    border: 0;
+    padding: 10px;
+    box-shadow: 1px 1px black;
+    border-radius: 5%;
+}
+
+.gameDiv {
+    text-align: center;
+    margin-top: 130px;
+}
+
+.gameImage {
+    margin: 50px;
 }
