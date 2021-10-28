@@ -3,7 +3,12 @@ import  Navbar from "./Components/Navbar.js";
 import Leaderboard from "./Components/Leaderboard.js";
 import Game from "./Components/Game.js";
 import Intro from "./Components/Intro.js";
+// import fire from "./fire";
+// import * as firebase from 'firebase';
+// import 'firebase/firestore';
 import "./style.css";
+import { doc, getDoc } from "firebase/firestore";
+
 
 function App() {
 
@@ -14,6 +19,9 @@ function App() {
   const [charList, setCharList] = useState([]);
 
   const startGame = () => {
+    // var db = firebase.firestore();
+    // var docRef = db.collection("charLocation");
+    // console.log("FIRE IS ")
     setGameStart(true);
   }
 

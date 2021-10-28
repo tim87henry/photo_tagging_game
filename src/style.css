@@ -58,3 +58,17 @@ body {
 .gameImage {
     margin: 50px;
 }
+
+.menuDiv {
+    background: lightgray;
+}
+
+.menuItem {
+    padding: 5px;
+    padding-right: 30px;
+}
+
+.menuItem:hover {
+    background: gray;
+    cursor: pointer;
+}
