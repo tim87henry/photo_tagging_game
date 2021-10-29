@@ -4,6 +4,7 @@ import Astro from "../data/astro.png";
 import Timer from "./Timer.js";
 
 const Navbar = (props) => {
+    console.log("Chars are "+props.characters)
     return (
         <div className="navbar">
             <img src={Trinity} className="navbar_image" alt="" />

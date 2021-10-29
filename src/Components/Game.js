@@ -1,7 +1,7 @@
 import Astro from "../data/fight_club.png";
 import {useState} from "react";
 
-const Game = () => {
+const Game = (props) => {
 
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -48,18 +48,21 @@ const Game = () => {
         trinity.innerHTML = "Trinity";
         trinity.className = "menuItem";
         trinity.addEventListener("click", function(e) {
+            props.handleSelection(x,y,0);
             closeMenu();
         });
         const sarah = document.createElement('div');
         sarah.innerHTML = "Sarah";
         sarah.className = "menuItem";
         sarah.addEventListener("click", function(e) {
+            props.handleSelection(x,y,1);
             closeMenu();
         });
         const astro = document.createElement('div');
         astro.innerHTML = "Astro Boy";
         astro.className = "menuItem";
         astro.addEventListener("click", function(e) {
+            props.handleSelection(x,y,2);
             closeMenu();
         });
         menuDiv.appendChild(trinity);
