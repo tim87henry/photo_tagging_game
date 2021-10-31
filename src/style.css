@@ -11,10 +11,14 @@ body {
     top: 0;
 }
 
-.navbar_image {
+.navbar_image_not_found,.navbar_image_found {
     height: 80px;
     width: 60px;
     margin: 20px;
+}
+
+.navbar_image_found {
+    opacity: 0.4;
 }
 
 .timer {
@@ -71,4 +75,19 @@ body {
 .menuItem:hover {
     background: gray;
     cursor: pointer;
+}
+
+.leaderboard {
+    margin-top: 200px;
+}
+
+.notification {
+    position: fixed;
+    top: 150px;
+    left: 45%;
+    background: black;
+    color: white;
+    padding: 15px;
+    opacity: 0.8;
+    transition: all 0.5s ease-in;
 }

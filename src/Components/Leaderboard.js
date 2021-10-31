@@ -1,6 +1,6 @@
 const Leaderboard = () => {
     return (
-        <div>
+        <div className="leaderboard">
             TOP SCORES GO HERE
         </div>
     );
