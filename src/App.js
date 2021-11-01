@@ -11,7 +11,6 @@ import "./style.css";
 
 function App() {
 
-  const [leaderboard, setLeaderboard] = useState([]);
   const [time, setTime] = useState(0);
   const [gameStart, setGameStart] = useState(false);
   const [gameEnd, setGameEnd] = useState(false);
@@ -54,10 +53,14 @@ function App() {
       setPopUpMsg("Wrong selection")
     }
     const notify = document.getElementById("notify");
-    const temp = (notify !== null)? notify.style.display = "block": null;
+    if (notify !== null) {
+      notify.style.display = "block";
+    }
     setTimeout(() => {
       const notify = document.getElementById("notify");
-      const temp =(notify !== null)? notify.style.display = "none": null;
+      if (notify !== null) {
+        notify.style.display = "none";
+      }
   }, 2000);
   }
 
@@ -87,7 +90,9 @@ function App() {
       : null}
 
       {gameEnd ? 
-      <Leaderboard />
+      <Leaderboard
+      time={time} 
+      />
       : null}
     </div>
   );
