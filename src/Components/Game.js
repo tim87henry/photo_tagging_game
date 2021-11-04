@@ -65,9 +65,15 @@ const Game = (props) => {
             props.handleSelection(x,y,2);
             closeMenu();
         });
-        menuDiv.appendChild(trinity);
-        menuDiv.appendChild(sarah);
-        menuDiv.appendChild(astro);
+        if (!props.characters[0]) {
+            menuDiv.appendChild(trinity);
+        }
+        if (!props.characters[1]) {
+            menuDiv.appendChild(sarah);
+        }
+        if (!props.characters[2]) {
+            menuDiv.appendChild(astro);
+        }
 
         menuDiv.className = "menuDiv";
         menuDiv.style.position = "absolute";

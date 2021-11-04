@@ -61,7 +61,7 @@ function App() {
       if (notify !== null) {
         notify.style.display = "none";
       }
-  }, 2000);
+  }, 3000);
   }
 
   return (
@@ -83,7 +83,9 @@ function App() {
       {(gameStart && !gameEnd) ? 
       <div>
         <Game 
-        handleSelection={handleSelection}/>
+        handleSelection={handleSelection}
+        characters={characters}
+        />
         <Notification 
         popUpMsg={popUpMsg} />
       </div>
