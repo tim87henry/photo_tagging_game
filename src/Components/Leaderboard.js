@@ -56,7 +56,7 @@ const Leaderboard = (props) => {
         <div>
             <div className={modalClass}>
                 <label for="name" className="userName">Enter your name</label> 
-                <input id="name" onChange={setUserName}></input>
+                <input id="name" onChange={setUserName} className="nameText"></input>
                 <button onClick={closeModal} className="modalLink">Okay</button>
             </div>
             <div className={scoresClass}>
