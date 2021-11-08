@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/photo_tagging_game/static/css/main.865c1db1.chunk.css",
+    "main.js": "/photo_tagging_game/static/js/main.6031554f.chunk.js",
+    "main.js.map": "/photo_tagging_game/static/js/main.6031554f.chunk.js.map",
+    "runtime-main.js": "/photo_tagging_game/static/js/runtime-main.f9493ea6.js",
+    "runtime-main.js.map": "/photo_tagging_game/static/js/runtime-main.f9493ea6.js.map",
+    "static/js/2.c461b8b4.chunk.js": "/photo_tagging_game/static/js/2.c461b8b4.chunk.js",
+    "static/js/2.c461b8b4.chunk.js.map": "/photo_tagging_game/static/js/2.c461b8b4.chunk.js.map",
+    "index.html": "/photo_tagging_game/index.html",
+    "static/css/main.865c1db1.chunk.css.map": "/photo_tagging_game/static/css/main.865c1db1.chunk.css.map",
+    "static/js/2.c461b8b4.chunk.js.LICENSE.txt": "/photo_tagging_game/static/js/2.c461b8b4.chunk.js.LICENSE.txt",
+    "static/media/fight_club.b1f21649.png": "/photo_tagging_game/static/media/fight_club.b1f21649.png",
+    "static/media/sarah.d71e119a.jpg": "/photo_tagging_game/static/media/sarah.d71e119a.jpg",
+    "static/media/trinity.25d39862.jpg": "/photo_tagging_game/static/media/trinity.25d39862.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f9493ea6.js",
+    "static/js/2.c461b8b4.chunk.js",
+    "static/css/main.865c1db1.chunk.css",
+    "static/js/main.6031554f.chunk.js"
+  ]
+}
